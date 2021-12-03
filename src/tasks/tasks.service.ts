@@ -51,6 +51,8 @@ export class TasksService {
     const index = this.tasks.findIndex((task) => task.id === id);
     if (index !== -1) {
       this.tasks.splice(index, 1)[0];
+    } else {
+      throw new NotFoundException(`Task with id ${id} not found`);
     }
   }
 
